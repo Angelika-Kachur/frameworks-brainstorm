@@ -1,5 +1,12 @@
+//React v15.5.0 - PropTypes is imported independently from React:
+//import React, { PropTypes } from 'react';
+
 const Items = props => {
   return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>;
+};
+
+Items.propTypes = {
+  quantity: PropTypes.number.isRequired
 };
 
 Items.defaultProps = {
