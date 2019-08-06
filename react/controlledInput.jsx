@@ -4,6 +4,8 @@
 //box on the page. The component state is the single source
 //of truth regarding the input data.
 
+//don't forget to add the necessary bindings in the constructor.
+
 class ControlledInput extends React.Component {
   constructor(props) {
     super(props);
