@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Review</title>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel"> //Don'r forget about BABEL
+        
+        const rootElement = document.getElementById('root');
+
+        //Compontent which returns JSX
+        //Example with Props
+        const Header = (props) => {
+            return (
+                <header>
+                    <p>{props.title}</p>
+                    <p>{props.subtitle}</p>
+                </header>
+            )
+        }
+        
+        //Compontent which returns JSX
+        //Example with Destruction
+        const Main = ({main: {content, skills}}) => {
+            const skillList = skills
+            .filter(skill => skill.length > 2)
+            .map(skill => skill.toLowerCase())
+            .map(num => <li key={num}>{num}</li>);
+            return (
+                <main>
+                    <p>{content}</p>
+                    <p>{skillList}</p>
+                </main>
+            )
+        }
+
+        //Compontent which returns JSX
+        const Footer = (props) => {
+            return (
+                <footer>
+                    <p>{props.year}</p>
+                </footer>
+            )
+        }
+
+        const App = () => {
+            const title = "This is new Title";
+            const subtitle = "This is Subtitle";
+            const year = new Date().getFullYear();
+            const main = {
+                content: "Lorem ipsum ipsum ipsum ipsum ipsum ipsum",
+                skills: ['HTML', 'CSS', 'JS', 'React']
+            }
+            return (
+                <div>
+                    <Header title={title} subtitle={subtitle}/>
+                    <Main main={main} />
+                    {/* main={main} - just prop */}
+                    {/* main={...main} || content={content} skills={skills} - props with Destruction */}
+                    <Footer year={year}/>
+                </div>
+            )
+        }
+
+        //You should use a parent html or React Fragment
+        ReactDOM.render(<App /> , rootElement);
+    </script>
+
+</body>
+</html>
