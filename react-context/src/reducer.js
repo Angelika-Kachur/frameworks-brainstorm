@@ -9,3 +9,12 @@ export const reducer = (state, action) => {
       throw state;
   }
 }
+
+export const todosReducer = (state, action) => {
+  switch (action.type) {
+    case 'FETCH_TODOS':
+      return action.todos;
+    default:
+      throw state;
+  }
+}

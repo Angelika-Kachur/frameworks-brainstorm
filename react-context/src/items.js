@@ -1,15 +1,21 @@
-import React,{useContext} from 'react';
+import React,{useContext, useEffect} from 'react';
 import {Context} from './Provider';
 
 const Items = () => {
 
   //8. here we are calling the context
-  const {state, increaseNumber, decrementNumber} = useContext(Context)
-  console.log(state);
+  const {counter, increaseNumber, decrementNumber, getTodos} = useContext(Context)
+  //console.log(counter);
+
+  useEffect(() => {
+    getTodos()
+   console.log('fetched')
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) //function here is litening for changes
 
   return (
     <>
-        <h1>Count: {state.count}</h1>
+        <h1>Count: {counter.count}</h1>
         <button onClick={increaseNumber}>+</button>
         <button onClick={decrementNumber}>-</button>
     </>
