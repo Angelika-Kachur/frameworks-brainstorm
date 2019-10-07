@@ -39,3 +39,5 @@ const Provider = ({children}) => {
 export default Provider;
 
 //if you want to dispatch actions with api call you need to dispatch it here in Provider
+
+//whatever we want to fetch data we can use context
