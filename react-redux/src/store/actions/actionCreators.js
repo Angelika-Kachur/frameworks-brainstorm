@@ -8,6 +8,8 @@
 
 */
 
+import axios from 'axios';
+
 export const addStudent = (student) => {
     console.log('dispatched an action')
     return {
@@ -25,4 +27,17 @@ export const deleteStudent = (id) => { //id payload
     }
 }
 
+export const fetchPost = () => {
+    return async (dispatch) => { //asynchronous func
+        const res = await axios.get('/posts');
+        /*dispatch({
+            type: "FETCH_POSTS"
+            posts: res.data.posts
+        })*/
+        console.log(res);
+    }
+}
+
 //implicity return -> to avoid {return {}}
+//action this is object
+//type and payload

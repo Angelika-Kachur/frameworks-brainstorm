@@ -20,6 +20,8 @@ function App(props) {
           </li>)
         }
         <button onClick={()=>props.addStudent(student)}>Add student</button>
+
+         <button onClick={()=>props.fetchPosts()}>Fetch posts</button>
         {/*<button onClick={()=>props.deleteStudent(id)}>Delete a student</button>/}
         {/* arrow func to avoid executin just away - like example with set interval*/}
       </header>
@@ -29,7 +31,8 @@ function App(props) {
 
 const mapStateToProps = state => {
   return {
-    students: state.students
+    students: state.students,
+    posts: state.posts //added to the 
   }
 }
 //get the state
@@ -42,3 +45,7 @@ const mapDispatchToProps = dispatch => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+//past past past prop? until you get a problem
+//add applyMiddleware and redux-thunk

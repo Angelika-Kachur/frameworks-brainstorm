@@ -1,5 +1,7 @@
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
+import thunk from 'redux-thunk';
 import rootReducers from './reducers/rootReducer'
+
 
 
 const initialState = {
@@ -16,13 +18,16 @@ const initialState = {
             name: "Lika",
             id: 2
         }
-    ]
+    ],
+    posts: []
 }
 
 console.log(initialState);
 
 
-const store = createStore(rootReducers, initialState);
+const store = createStore(rootReducers, initialState, applyMiddleware(thunk));
+
+//thunk - avoid async await - it makes promise for you
 
 console.log(store);
 
