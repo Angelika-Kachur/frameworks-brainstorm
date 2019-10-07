@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import Provider from './Provider';
 
 ReactDOM.render(
+    //9. we wrap the app with provider
     <Provider>
         <App />
     </Provider>, document.getElementById('root'));
