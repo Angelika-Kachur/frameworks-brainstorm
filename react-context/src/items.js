@@ -4,7 +4,7 @@ import {Context} from './Provider';
 const Items = () => {
 
   //8. here we are calling the context
-  const {counter, increaseNumber, decrementNumber, getTodos, writeName} = useContext(Context)
+  const {counter, increaseNumber, decrementNumber, getTodos, name, writeName} = useContext(Context)
   //console.log(counter);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const Items = () => {
         <h1>Count: {counter.count}</h1>
         <button onClick={increaseNumber}>+</button>
         <button onClick={decrementNumber}>-</button>
+        <h1>Name: {name.name}</h1>
         <input type="text" placeholder="Name" onChange={getName} />
     </>
   );
