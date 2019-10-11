@@ -18,6 +18,8 @@ const Items = () => {
         <h1>Count: {counter.count}</h1>
         <button onClick={increaseNumber}>+</button>
         <button onClick={decrementNumber}>-</button>
+        <input type="text" placeholder="" />
+        <input type="text" />
     </>
   );
 }
