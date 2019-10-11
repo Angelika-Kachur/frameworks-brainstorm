@@ -17,3 +17,8 @@ export const fetchTodos = (todos) => ({
     type: 'FETCH_TODOS',
     todos
 })
+
+export const write = (name) => ({
+    type: 'WRITE_NAME',
+    name: name
+})

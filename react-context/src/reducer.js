@@ -18,3 +18,13 @@ export const todosReducer = (state, action) => {
       throw state;
   }
 }
+
+export const nameReducer = (state, action) => {
+  switch (action.type) {
+    case 'WRITE_NAME':
+    console.log(state);
+      return {name: action.name};
+    default:
+      throw state;
+  }
+}

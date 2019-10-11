@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import axios from 'axios'
-import {reducer, todosReducer} from './reducer';
-import {increment, decrement, fetchTodos} from './actions'
+import {reducer, todosReducer, nameReducer} from './reducer';
+import {increment, decrement, fetchTodos, write} from './actions'
 
 const initialState = {count: 0};
 
@@ -17,6 +17,8 @@ const Provider = ({children}) => {
   const [todos, dispatchTodos] = useReducer(todosReducer, [])
   //todos is a state of the reducer 
 
+  const [name, dispatchName] = useReducer(nameReducer, [])
+
   //4.this function is to have an extra logic before dispatching
   //e.g. have API call
   const increaseNumber = () => {
@@ -26,6 +28,10 @@ const Provider = ({children}) => {
 
   const decrementNumber = () => {
     dispatch(decrement())
+  }
+
+  const writeName = (name) => {
+    dispatchName(write(name))
   }
 
   const getTodos = async() => {
@@ -43,7 +49,10 @@ const Provider = ({children}) => {
     decrementNumber,
     getTodos,
     todos,
-    dispatchTodos
+    dispatchTodos,
+    dispatchName,
+    writeName,
+    name
   }}> {/* everything inside will be able from the context*/}
     {children} {/* for <Provider><App/></Provider> */}
   </Context.Provider>

@@ -4,7 +4,7 @@ import {Context} from './Provider';
 const Items = () => {
 
   //8. here we are calling the context
-  const {counter, increaseNumber, decrementNumber, getTodos} = useContext(Context)
+  const {counter, increaseNumber, decrementNumber, getTodos, writeName} = useContext(Context)
   //console.log(counter);
 
   useEffect(() => {
@@ -13,13 +13,17 @@ const Items = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []) //function here is litening for changes
 
+  
+  const getName = (e) => {
+    writeName(e.target.value)
+  }
+
   return (
     <>
         <h1>Count: {counter.count}</h1>
         <button onClick={increaseNumber}>+</button>
         <button onClick={decrementNumber}>-</button>
-        <input type="text" placeholder="" />
-        <input type="text" />
+        <input type="text" placeholder="Name" onChange={getName} />
     </>
   );
 }
