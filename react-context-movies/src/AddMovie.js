@@ -4,19 +4,22 @@ import {MovieContext} from './MovieContext'
 const AddMovie = () => {
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
-    const [movies, setMovies] = useState(MovieContext);
+    const [movies, setMovies] = useContext(MovieContext);
 
     const updateName = e => {
+        console.log(e.target.value);
         setName(e.target.value);
     };
 
     const updatePrice = e => {
+        console.log(e.target.value);
         setPrice(e.target.value);
     };
 
     const addMovie = e => {
         e.preventDefault();
-        setMovies(prevMovies => [...prevMovies, {name: name, price: price}]);
+      
+        setMovies(prevMovies => [...prevMovies, {name: name, price: price, id: `id_ ${name}`}]);
     }
 
     return(

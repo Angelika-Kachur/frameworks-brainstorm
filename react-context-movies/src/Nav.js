@@ -6,8 +6,7 @@ const Nav = () => {
   console.log(MovieContext);
   return(
     <div>
-      <h3>Lika</h3>
-      <p>List of movies: {movies.length}</p>
+      <p>Lika's List of movies: {movies.length}</p>
     </div>
   );
 }
